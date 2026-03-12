@@ -21,6 +21,7 @@ interface Channel {
 }
 
 function Channel() {
+  const API_URL = import.meta.env.VITE_API_URL;
   const token = localStorage.getItem("token");
   const userId = localStorage.getItem("userId");
   const navigate = useNavigate();
@@ -36,7 +37,7 @@ function Channel() {
     try {
       setError(null);
 
-      const res = await axios.get("http://localhost:5000/api/channels/public", {
+      const res = await axios.get`"${API_URL}/api/channels/public`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
