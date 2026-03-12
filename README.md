@@ -6,6 +6,7 @@ ChatterBox is a full-stack messaging platform that allows users to create channe
 
 The project was developed as a capstone for the UT Austin Full Stack Web Development program and focuses on implementing core full-stack concepts including REST API design, authentication, state management, and database modeling.
 
+Live Demo: https://chatterbox.harrisonholt.dev/
 ---
 
 ## Features
@@ -175,3 +176,4 @@ Potential enhancements for future versions include:
 ## License
 
 This project was created for educational purposes as part of the UT Austin Full Stack Web Development program.
+
