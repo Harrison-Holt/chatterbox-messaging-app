@@ -224,6 +224,14 @@ function Channel() {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 fullWidth
+                sx={{
+                    input: { color: "#000" },
+                    label: { color: "#555" },
+                    "& .MuiOutlinedInput-root": {
+                      "& fieldset": { borderColor: "#ccc" },
+                      "&:hover fieldset": { borderColor: "#888" },
+                      "&.Mui-focused fieldset": { borderColor: "#1976d2" }
+                }
               />
 
               <TextField
@@ -233,6 +241,14 @@ function Channel() {
                 fullWidth
                 multiline
                 minRows={3}
+                  sx={{
+                    input: { color: "#000" },
+                    label: { color: "#555" },
+                    "& .MuiOutlinedInput-root": {
+                      "& fieldset": { borderColor: "#ccc" },
+                      "&:hover fieldset": { borderColor: "#888" },
+                      "&.Mui-focused fieldset": { borderColor: "#1976d2" }
+                  }
               />
 
               <Button
