@@ -14,6 +14,7 @@ interface ApiResponse {
 }
 
 export const useChannel = (token: string | null) => {
+  const API_URL = import.meta.env.VITE_API_URL;
   const [channels, setChannels] = useState<Channel[]>([]);
   const [channelLoading, setLoading] = useState<boolean>(false);
   const [channelError, setError] = useState<string | null>(null);
@@ -29,7 +30,7 @@ export const useChannel = (token: string | null) => {
       setError(null);
 
       const response = await axios.get<ApiResponse>(
-        "http://localhost:5000/api/channels/my",
+        `${API_URL}/api/channels/my`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
