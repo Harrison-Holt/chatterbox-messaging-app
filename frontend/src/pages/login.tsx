@@ -4,8 +4,6 @@ import logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
 import { useLogin } from "../hooks/useLogin.ts";
 import { useState } from "react";
-import { AlertTitle, IconButton } from "@mui/material";
-import CloseIcon from "@mui/icons-material/Close";
 
 function Login() {
   const { username, setUsername, password, setPassword, loading, error, login } = useLogin();
