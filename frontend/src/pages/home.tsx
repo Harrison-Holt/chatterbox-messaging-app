@@ -316,14 +316,19 @@ function Home() {
               onChange={(e) => setContent(e.target.value)}
               fullWidth
               disabled={!selectedChannel}
-                  sx={{
-                    input: { color: "#000" },
-                    label: { color: "#555" },
-                    "& .MuiOutlinedInput-root": {
-                      "& fieldset": { borderColor: "#ccc" },
-                      "&:hover fieldset": { borderColor: "#888" },
-                      "&.Mui-focused fieldset": { borderColor: "#1976d2" }
-                  }
+              sx={{
+                "& .MuiInputBase-input": {
+                  color: "#000"
+                },
+                "& .MuiInputLabel-root": {
+                  color: "#555"
+                },
+                "& .MuiOutlinedInput-root": {
+                  backgroundColor: "#fff",
+                  "& fieldset": { borderColor: "#ccc" },
+                  "&:hover fieldset": { borderColor: "#888" },
+                  "&.Mui-focused fieldset": { borderColor: "#1976d2" }
+                }
               }}
             />
 
