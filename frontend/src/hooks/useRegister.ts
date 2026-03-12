@@ -27,6 +27,15 @@ export function useRegister() {
             return;  
         }
 
+        const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/;
+        
+        if (!passwordRegex.test(password)) {
+          setError(
+            "Password must contain 8+ characters, uppercase, lowercase, number, and special character."
+          );
+          return;
+        }
+        
         try {
             setLoading(true); 
 
