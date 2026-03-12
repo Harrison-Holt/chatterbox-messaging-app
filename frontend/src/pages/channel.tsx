@@ -203,7 +203,7 @@ function Channel() {
               bgcolor: "rgba(255,255,255,0.94)",
             }}
           >
-            <Typography variant="h5" sx={{ fontWeight: 700, mb: 1, color: "#000" }}>
+            <Typography variant="h5" sx={{ fontWeight: 700, mb: 1,  color: "#000 !important" }}>
               Create Channel
             </Typography>
             <Typography variant="body2" color="text.secondary" sx={{ mb: 3 }}>
