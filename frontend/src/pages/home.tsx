@@ -8,6 +8,13 @@ import { useCreateMessage } from "../hooks/useCreateMessage.ts";
 import { useMessage } from "../hooks/useMessage.ts";
 import { useNavigate } from "react-router-dom";
 
+interface Channel {
+  _id: string;
+  name: string;
+  description?: string;
+  members?: string[];
+}
+
 function Home() {
   const token = localStorage.getItem("token");
   const navigate = useNavigate();
