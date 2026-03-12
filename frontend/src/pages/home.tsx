@@ -32,7 +32,7 @@ function Home() {
   const handleLogout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("userId");
-    window.location.href = "https://chatterbox.harrisonholt.dev/login";
+    window.location.href = "/login";
   };
 
   const { messages, messageLoading, messageError, fetchMessages } = useMessage(
