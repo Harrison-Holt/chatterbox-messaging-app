@@ -323,7 +323,7 @@ function Home() {
                       "& fieldset": { borderColor: "#ccc" },
                       "&:hover fieldset": { borderColor: "#888" },
                       "&.Mui-focused fieldset": { borderColor: "#1976d2" }
-                  }, 
+                  }
               }}
             />
 
