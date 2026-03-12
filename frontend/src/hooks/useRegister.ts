@@ -29,7 +29,7 @@ export function useRegister() {
         try {
             setLoading(true); 
 
-            const response = await api.post("http://localhost:5000/api/auth/register", { username, email, password, retypedPassword } ); 
+            await api.post("http://localhost:5000/api/auth/register", { username, email, password, retypedPassword } ); 
 
             navigate('/login'); 
 
