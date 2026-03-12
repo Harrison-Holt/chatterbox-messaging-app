@@ -232,7 +232,6 @@ function Home() {
           }}
         >
           {messageLoading && <Typography>Loading messages...</Typography>}
-          {messageError && <Typography>{messageError}</Typography>}
 
           {!selectedChannel ? (
             <Box
