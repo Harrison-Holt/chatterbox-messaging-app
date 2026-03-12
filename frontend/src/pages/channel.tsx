@@ -37,7 +37,7 @@ function Channel() {
     try {
       setError(null);
 
-      const res = await axios.get`"${API_URL}/api/channels/public`, {
+      const res = await axios.get(`${API_URL}/api/channels/public`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -66,7 +66,7 @@ function Channel() {
       setError(null);
 
       await axios.post(
-        "http://localhost:5000/api/channels/create",
+        `${API_URL}/api/channels/create`,
         {
           name: name.trim(),
           description: description.trim(),
@@ -94,7 +94,7 @@ function Channel() {
       setError(null);
 
       await axios.post(
-        `http://localhost:5000/api/channels/${channelId}/join`,
+        `${API_URL}/api/channels/${channelId}/join`,
         {},
         {
           headers: {
@@ -130,7 +130,6 @@ function Channel() {
       }}
     >
       <Box sx={{ maxWidth: 1050, mx: "auto" }}>
-        {/* Top Header */}
         <Paper
           elevation={5}
           sx={{
@@ -153,7 +152,12 @@ function Channel() {
             }}
           >
             <Box sx={{ display: "flex", alignItems: "center", gap: 1.5 }}>
-              <Box component="img" src={logo} alt="ChatterBox logo" sx={{ height: 48, width: "auto" }} />
+              <Box
+                component="img"
+                src={logo}
+                alt="ChatterBox logo"
+                sx={{ height: 48, width: "auto" }}
+              />
               <Box>
                 <Typography variant="h4" sx={{ fontWeight: 700 }}>
                   Channel Workspace
@@ -191,7 +195,6 @@ function Channel() {
             gap: 3,
           }}
         >
-          {/* Create Channel Card */}
           <Paper
             elevation={5}
             sx={{
@@ -249,7 +252,6 @@ function Channel() {
             </Box>
           </Paper>
 
-          {/* Public Channels Card */}
           <Paper
             elevation={5}
             sx={{
@@ -313,7 +315,7 @@ function Channel() {
                             textTransform: "none",
                             borderRadius: 2,
                             fontWeight: 600,
-                            color: alreadyJoined ? "white" : "white",
+                            color: "white",
                             borderColor: "rgba(255,255,255,0.28)",
                           }}
                         >
