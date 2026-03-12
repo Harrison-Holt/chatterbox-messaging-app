@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 export const useCreateChannel = (token: string | null) => {
 
     const navigate = useNavigate(); 
+    const API_URL = import.meta.env.VITE_API_URL;
 
     const [channelName, setName] = useState<string>(""); 
     const [channelDescription, setDescription] = useState<string>(""); 
@@ -23,7 +24,7 @@ export const useCreateChannel = (token: string | null) => {
         try {
             setLoading(true); 
 
-            await api.post("http://localhost:5000/api/channels/create", 
+            await api.post(`${API_URL}/api/channels/create`, 
                 {
                     name: channelName, 
                     description: channelDescription, 
