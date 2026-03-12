@@ -13,12 +13,22 @@ const app = express();
 
 app.use(
   cors({
-    origin: [
-      "https://chatterbox.harrisonholt.dev",
-      "https://chatterbox-messaging-app-git-master-harrison-holts-projects.vercel.app",
-      "https://chatterbox-messaging-a2zzhg9xx-harrison-holts-projects.vercel.app",
-      "https://chatterbox-messaging-app-harrison-holts-projects.vercel.app",
-    ],
+    origin: (origin, callback) => {
+      if (!origin) return callback(null, true);
+
+      const allowedOrigins = [
+        "https://chatterbox.harrisonholt.dev",
+      ];
+
+      const isAllowedPreview =
+        origin.endsWith("-harrison-holts-projects.vercel.app");
+
+      if (allowedOrigins.includes(origin) || isAllowedPreview) {
+        return callback(null, true);
+      }
+
+      return callback(new Error(`Not allowed by CORS: ${origin}`));
+    },
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
