@@ -243,7 +243,7 @@ function Channel() {
                 multiline
                 minRows={3}
                   sx={{
-                    input: { color: "#000" },
+                    input: { color: "#000 !important" },
                     label: { color: "#555" },
                     "& .MuiOutlinedInput-root": {
                       "& fieldset": { borderColor: "#ccc" },
