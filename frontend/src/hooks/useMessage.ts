@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import api from "./axios.ts"; 
+import api from "./axios.ts";
 
 interface Message {
   _id: string;
@@ -13,14 +13,13 @@ interface Message {
 
 interface ApiResponse {
   message?: string;
-  messages: Message[];
+  messages?: Message[];
 }
 
 export const useMessage = (
   token: string | null,
   channelId: string | null
 ) => {
-  
   const API_URL = import.meta.env.VITE_API_URL;
   const [messages, setMessages] = useState<Message[]>([]);
   const [messageLoading, setLoading] = useState<boolean>(false);
@@ -29,6 +28,7 @@ export const useMessage = (
   const fetchMessages = async () => {
     if (!token || !channelId) {
       setMessages([]);
+      setError(null);
       setLoading(false);
       return;
     }
@@ -46,7 +46,8 @@ export const useMessage = (
         }
       );
 
-      setMessages(response.data.messages);
+      setMessages(response.data.messages || []);
+      setError(null);
     } catch (err) {
       setError("Error fetching messages!");
       setMessages([]);
