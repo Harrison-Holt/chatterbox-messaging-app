@@ -15,6 +15,15 @@ router.post("/register", async (req, res) => {
         if (!username || !email || !password || !retypedPassword) {
             return res.status(400).json({ message: "All fields are required!" }); 
         } 
+
+            const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+        if (!passwordRegex.test(password)) {
+          return res.status(400).json({
+            message:
+              "Password must be at least 8 characters and include uppercase, lowercase, number, and special character.",
+          });
+        }
         else if (password !== retypedPassword) {
             return res.status(400).json({ message: "passwords don't match!" }); 
         }
