@@ -40,7 +40,7 @@ router.get("/:id/messages", authMiddleware, async (req, res) => {
     .sort({ createdAt: 1 });
     
     if(messages.length === 0) {
-        res.status(400).json({ message: "No messages in this channel! Start the conversation!" }); 
+        res.status(200).json({ message: "No messages in this channel! Start the conversation!" }); 
         return; 
     }
 
