@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import api from "./axios.ts";
+import axios from "axios";
 
 interface Message {
   _id: string;
@@ -49,6 +50,18 @@ export const useMessage = (
       setMessages(response.data.messages || []);
       setError(null);
     } catch (err) {
+      if (axios.isAxiosError(err)) {
+        const backendMessage = err.response?.data?.message;
+
+        if (
+          backendMessage === "No messages in this channel! Start the conversation!"
+        ) {
+          setMessages([]);
+          setError(null);
+          return;
+        }
+      }
+
       setError("Error fetching messages!");
       setMessages([]);
     } finally {
