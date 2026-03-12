@@ -14,6 +14,7 @@ interface ApiResponse {
 
 export const useOrganization = (token: string | null) => {
 
+    const API_URL = import.meta.env.VITE_API_URL;
     const [organizations, setOrganization] = useState<Organization[]>([]); 
     const [organizationLoading, setLoading] = useState<boolean>(true); 
     const [organizationError, setError] = useState<string | null>(null); 
@@ -31,7 +32,7 @@ export const useOrganization = (token: string | null) => {
                 setLoading(true); 
                 setError(null); 
 
-                const response = await axios.get<ApiResponse>("http://localhost:5000/api/organization/list", {
+                const response = await axios.get<ApiResponse>(`${API_URL}/api/organization/list`, {
                     headers: { Authorization: `Bearer ${token}` }
                 }); 
 
