@@ -73,14 +73,14 @@ React Frontend → Express API → MongoDB Database
 ## Project Structure
 
 ```
-client/
+frontend/
   src/
     components/
     hooks/
     pages/
     assets/
 
-server/
+backend/
   routes/
   models/
   middleware/
@@ -120,7 +120,7 @@ PORT=5000
 ### Frontend Setup
 
 ```
-cd client
+cd frontend
 npm install
 npm run dev
 ```
@@ -176,4 +176,5 @@ Potential enhancements for future versions include:
 ## License
 
 This project was created for educational purposes as part of the UT Austin Full Stack Web Development program.
+
 
