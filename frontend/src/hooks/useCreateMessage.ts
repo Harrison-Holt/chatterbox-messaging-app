@@ -2,6 +2,8 @@ import { useState } from "react";
 import api from "./axios.ts"; 
 
 export const useCreateMessage = (token: string | null, channelId: string | null) => {
+  
+  const API_URL = import.meta.env.VITE_API_URL;
   const [content, setContent] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -19,7 +21,7 @@ export const useCreateMessage = (token: string | null, channelId: string | null)
       setError(null);
 
       await api.post(
-        `http://localhost:5000/api/channels/${channelId}/messages`,
+        `${API_URL}/api/channels/${channelId}/messages`,
         { content },
         {
           headers: {
