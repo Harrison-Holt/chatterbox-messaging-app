@@ -17,7 +17,7 @@ app.use(
       "https://chatterbox.harrisonholt.dev",
       "https://chatterbox-messaging-app-git-master-harrison-holts-projects.vercel.app",
       "https://chatterbox-messaging-a2zzhg9xx-harrison-holts-projects.vercel.app",
-      "chatterbox-messaging-app-harrison-holts-projects.vercel.app",
+      "https://chatterbox-messaging-app-harrison-holts-projects.vercel.app",
     ],
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
