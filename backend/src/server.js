@@ -14,7 +14,11 @@ app.use(express.json());
 
 app.use(
   cors({
-    origin: process.env.CLIENT_URL,
+    origin: [
+      "https://chatterbox.harrisonholt.dev",
+      "https://chatterbox-messaging-app-git-master-harrison-holts-projects.vercel.app",
+      "https://chatterbox-messaging-a2zzhg9xx-harrison-holts-projects.vercel.app"
+    ],
     credentials: true
   })
 );
