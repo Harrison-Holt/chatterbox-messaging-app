@@ -23,7 +23,7 @@ export const useCreateChannel = (token: string | null) => {
         try {
             setLoading(true); 
 
-            const response = await api.post("http://localhost:5000/api/channels/create", 
+            await api.post("http://localhost:5000/api/channels/create", 
                 {
                     name: channelName, 
                     description: channelDescription, 
