@@ -1,4 +1,12 @@
-import { Container, Typography, Box, Button, TextField, Alert, Paper } from "@mui/material";
+import {
+  Container,
+  Typography,
+  Box,
+  Button,
+  TextField,
+  Alert,
+  Paper,
+} from "@mui/material";
 import { useState } from "react";
 import logo from "../assets/logo.png";
 import WifiChannelIcon from "@mui/icons-material/WifiChannel";
@@ -23,6 +31,7 @@ function Home() {
 
   const handleLogout = () => {
     localStorage.removeItem("token");
+    localStorage.removeItem("userId");
     window.location.href = "/";
   };
 
@@ -89,14 +98,28 @@ function Home() {
             borderBottom: "1px solid rgba(255,255,255,0.08)",
           }}
         >
-          <Box component="img" src={logo} alt="ChatterBox logo" sx={{ height: 48, width: "auto" }} />
+          <Box
+            component="img"
+            src={logo}
+            alt="ChatterBox logo"
+            sx={{ height: 48, width: "auto" }}
+          />
           <Typography variant="h6" sx={{ fontWeight: 700 }}>
             ChatterBox
           </Typography>
         </Box>
 
         {/* Channels Section */}
-        <Box sx={{ px: 2, py: 2, display: "flex", flexDirection: "column", gap: 2, flexGrow: 1 }}>
+        <Box
+          sx={{
+            px: 2,
+            py: 2,
+            display: "flex",
+            flexDirection: "column",
+            gap: 2,
+            flexGrow: 1,
+          }}
+        >
           <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
             <WifiChannelIcon />
             <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>
@@ -186,7 +209,9 @@ function Home() {
             backdropFilter: "blur(8px)",
           }}
         >
-          <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+          <Box
+            sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}
+          >
             {selectedChannel ? (
               <Box>
                 <Typography variant="h5" sx={{ fontWeight: 700 }}>
@@ -231,8 +256,6 @@ function Home() {
             mb: 2,
           }}
         >
-          {messageLoading && <Typography>Loading messages...</Typography>}
-
           {!selectedChannel ? (
             <Box
               sx={{
@@ -246,6 +269,10 @@ function Home() {
             >
               <Typography variant="h6">Select a channel to begin messaging.</Typography>
             </Box>
+          ) : messageLoading ? (
+            <Typography>Loading messages...</Typography>
+          ) : messageError ? (
+            <Alert severity="error">{messageError}</Alert>
           ) : messages?.length > 0 ? (
             messages.map((message) => {
               const formattedDate = new Date(message.createdAt).toLocaleString([], {
@@ -303,7 +330,11 @@ function Home() {
             backdropFilter: "blur(8px)",
           }}
         >
-          <Box component="form" onSubmit={handleSendMessage} sx={{ display: "flex", gap: 2, alignItems: "center" }}>
+          <Box
+            component="form"
+            onSubmit={handleSendMessage}
+            sx={{ display: "flex", gap: 2, alignItems: "center" }}
+          >
             {error && <Alert severity="error">{error}</Alert>}
 
             <TextField
@@ -317,17 +348,17 @@ function Home() {
               disabled={!selectedChannel}
               sx={{
                 "& .MuiInputBase-input": {
-                  color: "#000"
+                  color: "#000",
                 },
                 "& .MuiInputLabel-root": {
-                  color: "#555"
+                  color: "#555",
                 },
                 "& .MuiOutlinedInput-root": {
                   backgroundColor: "#fff",
                   "& fieldset": { borderColor: "#ccc" },
                   "&:hover fieldset": { borderColor: "#888" },
-                  "&.Mui-focused fieldset": { borderColor: "#1976d2" }
-                }
+                  "&.Mui-focused fieldset": { borderColor: "#1976d2" },
+                },
               }}
             />
 
