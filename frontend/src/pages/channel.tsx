@@ -242,15 +242,29 @@ function Channel() {
                 fullWidth
                 multiline
                 minRows={3}
-                  sx={{
-                    input: { color: "#000 !important" },
-                    label: { color: "#555" },
-                    "& .MuiOutlinedInput-root": {
-                      "& fieldset": { borderColor: "#ccc" },
-                      "&:hover fieldset": { borderColor: "#888" },
-                      "&.Mui-focused fieldset": { borderColor: "#1976d2" }
+                sx={{
+                  "& .MuiInputBase-input": {
+                    color: "#000"
+                  },
+                  "& .MuiInputLabel-root": {
+                    color: "#555"
+                  },
+                  "& .MuiOutlinedInput-root": {
+                    backgroundColor: "#fff",
+                    "& textarea": {
+                      color: "#000"
+                    },
+                    "& fieldset": {
+                      borderColor: "#ccc"
+                    },
+                    "&:hover fieldset": {
+                      borderColor: "#888"
+                    },
+                    "&.Mui-focused fieldset": {
+                      borderColor: "#1976d2"
+                    }
                   }
-                  }}
+                }}
               />
 
               <Button
