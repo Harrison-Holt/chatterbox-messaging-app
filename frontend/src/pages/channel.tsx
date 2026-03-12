@@ -232,6 +232,7 @@ function Channel() {
                       "&:hover fieldset": { borderColor: "#888" },
                       "&.Mui-focused fieldset": { borderColor: "#1976d2" }
                 }
+                }}
               />
 
               <TextField
@@ -249,6 +250,7 @@ function Channel() {
                       "&:hover fieldset": { borderColor: "#888" },
                       "&.Mui-focused fieldset": { borderColor: "#1976d2" }
                   }
+                  }}
               />
 
               <Button
