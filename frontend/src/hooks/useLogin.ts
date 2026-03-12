@@ -8,6 +8,7 @@ import api from "./axios.ts";
 export function useLogin() {
 
     const navigate = useNavigate(); 
+    const API_URL = import.meta.env.VITE_API_URL;
 
     const [username, setUsername] = useState<string>(""); 
     const [password, setPassword] = useState<string>(""); 
@@ -27,7 +28,7 @@ export function useLogin() {
         try {
             setLoading(true); 
 
-            const response = await api.post("http://localhost:5000/api/auth/login", { username, password } ); 
+            const response = await api.post(`${API_URL}/api/auth/login`, { username, password } ); 
 
             localStorage.setItem('token', response.data.token); 
 
