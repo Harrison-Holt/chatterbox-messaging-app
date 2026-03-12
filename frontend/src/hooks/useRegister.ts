@@ -8,6 +8,7 @@ import api from "./axios.ts";
 export function useRegister() {
 
     const navigate = useNavigate(); 
+    const API_URL = import.meta.env.VITE_API_URL;
 
     const [username, setUsername] = useState<string>(""); 
     const [email, setEmail] = useState<string>(""); 
@@ -29,7 +30,7 @@ export function useRegister() {
         try {
             setLoading(true); 
 
-            await api.post("http://localhost:5000/api/auth/register", { username, email, password, retypedPassword } ); 
+            await api.post(`${API_URL}/api/auth/register`, { username, email, password, retypedPassword } ); 
 
             navigate('/login'); 
 
