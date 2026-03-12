@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 export const useCreateOrg = (token: string | null) => {
 
     const navigate = useNavigate(); 
+    const API_URL = import.meta.env.VITE_API_URL;
 
     const [organizationName, setName] = useState<string>(""); 
     const [organizationDescription, setDescription] = useState<string>(""); 
@@ -23,7 +24,7 @@ export const useCreateOrg = (token: string | null) => {
         try {
             setLoading(true); 
 
-            await axios.post("http://localhost:5000/api/organization/create", 
+            await axios.post(`${API_URL}/api/organization/create`, 
                 {
                     name: organizationName, 
                     description: organizationDescription, 
