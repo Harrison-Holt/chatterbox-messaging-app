@@ -115,6 +115,7 @@ function Registration() {
               type="password"
               variant="outlined"
               fullWidth
+              helperText="8+ chars, uppercase, lowercase, number, special character"
             />
 
             <TextField
@@ -190,3 +191,4 @@ function Registration() {
 }
 
 export default Registration;
+
