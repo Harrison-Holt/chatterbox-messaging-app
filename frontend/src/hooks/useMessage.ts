@@ -20,6 +20,8 @@ export const useMessage = (
   token: string | null,
   channelId: string | null
 ) => {
+  
+  const API_URL = import.meta.env.VITE_API_URL;
   const [messages, setMessages] = useState<Message[]>([]);
   const [messageLoading, setLoading] = useState<boolean>(false);
   const [messageError, setError] = useState<string | null>(null);
@@ -36,7 +38,7 @@ export const useMessage = (
       setError(null);
 
       const response = await api.get<ApiResponse>(
-        `http://localhost:5000/api/channels/${channelId}/messages`,
+        `${API_URL}/api/channels/${channelId}/messages`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
