@@ -98,6 +98,7 @@ function Registration() {
 
             <TextField
               label="Email"
+              type="email"
               id="email"
               name="email"
               value={email}
@@ -191,4 +192,5 @@ function Registration() {
 }
 
 export default Registration;
+
 
