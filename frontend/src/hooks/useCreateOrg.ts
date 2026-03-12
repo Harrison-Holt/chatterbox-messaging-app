@@ -23,7 +23,7 @@ export const useCreateOrg = (token: string | null) => {
         try {
             setLoading(true); 
 
-            const response = await axios.post("http://localhost:5000/api/organization/create", 
+            await axios.post("http://localhost:5000/api/organization/create", 
                 {
                     name: organizationName, 
                     description: organizationDescription, 
