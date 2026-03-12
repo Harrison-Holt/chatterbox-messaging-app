@@ -31,7 +31,7 @@ app.get("/health", (req, res) => {
 const port = process.env.PORT || 5000; 
 
 await db_connection(); 
-      db_connection
+      
 app.listen(port, () => {
     console.log(`Server runningat http://localhost:${port}`)
 }); 
