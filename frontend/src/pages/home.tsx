@@ -316,11 +316,14 @@ function Home() {
               onChange={(e) => setContent(e.target.value)}
               fullWidth
               disabled={!selectedChannel}
-              sx={{
-                "& .MuiOutlinedInput-root": {
-                  bgcolor: "white",
-                  borderRadius: 2,
-                },
+                  sx={{
+                    input: { color: "#000" },
+                    label: { color: "#555" },
+                    "& .MuiOutlinedInput-root": {
+                      "& fieldset": { borderColor: "#ccc" },
+                      "&:hover fieldset": { borderColor: "#888" },
+                      "&.Mui-focused fieldset": { borderColor: "#1976d2" }
+                  }, 
               }}
             />
 
